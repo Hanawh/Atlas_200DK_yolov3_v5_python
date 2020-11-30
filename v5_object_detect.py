@@ -148,7 +148,7 @@ def non_max_suppression(prediction, conf_thres=0.01,iou_thres = 0.5):
     # Box (center x, center y, width, height) to (x1, y1, x2, y2)
     box = xywh2xyxy(x[:, :4])#[36,4]
 
-    conf_ = x[:,5:].max(1) #7个类置信度的最大值 1表示是这一行  ,keepdims=True保持维度是[xxx,1]  (30,)
+    conf_ = x[:,5:].max(1) #7个类置信度的最大值 1表示是这一行
     conf= conf_[:,np.newaxis] #(30,1)
     j = x[:,5:].argmax(-1) #cls
     j = j[:,np.newaxis]#(30,1)
